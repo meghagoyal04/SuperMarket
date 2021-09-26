@@ -20,7 +20,7 @@ public class CameraControl : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        playerCam = GetComponentInChildren<Camera>();
+        playerCam = Camera.main;
     }
 
     // Update is called once per frame
@@ -29,9 +29,6 @@ public class CameraControl : MonoBehaviour
         GetInput();
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void GetInput()
@@ -42,6 +39,6 @@ public class CameraControl : MonoBehaviour
         yRotation += mouseX * sensX * camMultiplier;
         xRotation -= mouseY * sensY * camMultiplier;
 
-        xRotation = Mathf.Clamp(xRotation, -180f, 180f);
+        xRotation = Mathf.Clamp(xRotation, -1f, 1f);
     }
 }
