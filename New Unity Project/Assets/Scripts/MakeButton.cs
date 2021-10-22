@@ -20,7 +20,8 @@ public class MakeButton : MonoBehaviour
     private int currentOrder;
     public int kind;
     //public GameObject[] orderTypes;
-
+    public GameObject panel;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -57,29 +58,32 @@ public class MakeButton : MonoBehaviour
         if (obj1.tag == "Milk" || kind == 0)
         {
             orders[currentOrder].transform.localPosition = new Vector3(-68 + 45 * currentOrder, 105, 0);
-            currentHappiness += 8;
+            //currentHappiness += 8;
+
+            if (panel != null)
+            {
+                panel.SetActive(true);
+            }
+
+            else
+            {
+                panel.SetActive(false);
+            }
         }
 
         if (obj1.name == "Butter" || kind == 1)
         {
             orders[currentOrder].transform.localPosition = new Vector3(-68 + 45 * currentOrder, 40, 0);
-            currentHappiness += 8;
+            //currentHappiness += 8;
         }
 
         if (obj1.name == "Chip" || kind == 2)
         {
             orders[currentOrder].transform.localPosition = new Vector3(-68 + 45 * currentOrder, -20, 0);
-            currentHappiness += 8;
         }
 
         currentOrder++;
 
-        happinessBar.UpdateHappiness((float)currentHappiness / (float)maxHappiness);
-        if(currentHappiness > maxHappiness)
-        {
-            currentHappiness = 0;
-            happinessBar.UpdateHappiness((float)currentHappiness / (float)maxHappiness);
-        }
         /* if(currentOrder == maxOrders)
          {
              foreach(GameObject orderButton in orderButtons)
@@ -89,6 +93,14 @@ public class MakeButton : MonoBehaviour
              }
          }*/
     }
+
+   /* public void OpenPanel()
+    {
+        if (panel != null)
+        {
+            panel.SetActive(true);
+        }
+    }*/
 
     void DoSomething(GameObject obj1)
     {

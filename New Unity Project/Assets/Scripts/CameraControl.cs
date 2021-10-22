@@ -39,6 +39,6 @@ public class CameraControl : MonoBehaviour
         yRotation += mouseX * sensX * camMultiplier;
         xRotation -= mouseY * sensY * camMultiplier;
 
-        xRotation = Mathf.Clamp(xRotation, -2f, 2f);
+        xRotation = Mathf.Clamp(xRotation, -0.1f, 0.11f);
     }
 }
