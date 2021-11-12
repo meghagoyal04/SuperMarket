@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Milk
   itemSprite: {fileID: 21300000, guid: 342556c362a839943bbf798b2711ad85, type: 3}
+  itemPrice: 23
+  quant: 4
+  calcium: 50

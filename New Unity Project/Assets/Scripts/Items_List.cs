@@ -39,8 +39,16 @@ public class Items_List : MonoBehaviour
         Orders = new List<List<string>>();
         ItemName = "";
         ItemPrice = "";
+        //updateQuant();
     }
 
+    void updateQuant()
+    {
+        for(int i = 0; i < items.Count; i++)
+        {
+            items[i].quant = 0;
+        }
+    }
 
     public void AddToInventory()
     {
@@ -78,35 +86,11 @@ public class Items_List : MonoBehaviour
                 if (x.itemName.Equals("Tea"))
                 {
                     AddItem(x, Quantity);
-                    ItemName = x.itemName;
-                    ItemPrice = x.itemPrice.ToString();
+                   
                     break;
                 }
             }
         }
-
-        if (Orders.Count > 1)
-        {
-            for (int i = 0; i < Orders.Count; i++)
-            {
-                if (Orders[i][0].Contains(ItemName))
-                {
-                    Orders[i][1] = Quantity.ToString();
-                }
-                else
-                {
-                    Orders.Add(new List<string> { ItemName, Quantity.ToString(), ItemPrice });                 
-                }
-            }
-
-        }
-
-        else
-        {
-            Orders.Add(new List<string> { ItemName, Quantity.ToString(), ItemPrice });
-        }
-        
-       
     }
 
     void updateHappinessbar(float currentHappiness)
@@ -135,6 +119,7 @@ public class Items_List : MonoBehaviour
                 if(items[i] == exampleitem)
                 {
                     itemNumber[i] = quant;
+                    items[i].quant = quant;
                     //Debug.Log(itemNumber[i]);
                 }
             }
@@ -162,9 +147,10 @@ public class Items_List : MonoBehaviour
             if (int.Parse(slots[i].transform.GetChild(0).GetComponent<Text>().text) > 0 && !s.itemName.Equals(items[i].itemName))
             {
                 store = int.Parse(slots[i].transform.GetChild(0).GetComponent<Text>().text);
-                if(store != itemNumber[idx] && itemNumber[idx] != 0)
+                if(store != items[idx].quant && items[idx].quant != 0)
                 {
-                    slots[idx].transform.GetChild(0).GetComponent<Text>().text = itemNumber[idx].ToString();
+                    slots[idx].transform.GetChild(0).GetComponent<Text>().text = items[idx].quant.ToString();
+                    
                 }
             }
 
@@ -172,7 +158,7 @@ public class Items_List : MonoBehaviour
             else {
                 //Debug.Log(itemNumber[i]);
                 slots[i].transform.GetChild(0).GetComponent<Text>().enabled = true;
-                slots[i].transform.GetChild(0).GetComponent<Text>().text = itemNumber[i].ToString();
+                slots[i].transform.GetChild(0).GetComponent<Text>().text = items[i].quant.ToString();
                 updateHappinessbar(currentHappiness);
             }
 

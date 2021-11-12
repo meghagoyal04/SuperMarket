@@ -12,33 +12,38 @@ public class billing : MonoBehaviour
     public GameObject bill;
     private int quant;
     private int price;
-    private string name;
+    private string name= "";
+    private int calciumtotal= 0;
     private int totalCost=0;
     private Text item_cost;
     //public List<Item> items = new List<Item>();
-    public List<List<string>>itemAmount = new List<List<string>>();
-    void Start()
+    private List<Item>items = new List<Item>();
+    
+    /*void Start()
     {
         
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
     {
-        item_cost.text = totalCost.ToString();
+        //item_cost.text = totalCost.ToString();
 
     }
     public void bills()
     {
-        itemAmount = bill.GetComponent<Items_List>().Orders;
-        foreach (var x in itemAmount)
-        {
-             string name = x[0];
-             quant = Int32.Parse(x[1]);
+        items = bill.GetComponent<Items_List>().items;
 
-             price = Convert.ToInt32(x[2]);
-             totalCost += (quant * price);
-            Debug.Log(totalCost);
+         for (int i = 0; i < items.Count; i++)
+         {
+            string name = items[i].itemName;
+            quant = items[i].quant;
+            price = items[i].itemPrice;
+            calciumtotal += items[i].calcium * quant;
+            totalCost += quant * price;
+            //Debug.Log(name);
+            //Debug.Log(quant);
+
         }
         
     }

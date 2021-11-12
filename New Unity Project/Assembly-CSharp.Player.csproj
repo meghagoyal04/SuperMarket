@@ -58,6 +58,7 @@
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\PlayerSlots.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Utilities\SliceHelper.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\Scripts\billing.cs" />
     <Compile Include="Assets\CoffeeShopStarterPack\Scripts\BewerageMaker.cs" />
     <Compile Include="Assets\Scripts\playerMoney.cs" />
     <Compile Include="Assets\EasySnap\Scripts\Unselectable.cs" />

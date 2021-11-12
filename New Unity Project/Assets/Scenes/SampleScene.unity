@@ -2606,7 +2606,7 @@ RectTransform:
   - {fileID: 437925851}
   - {fileID: 455428384}
   m_Father: {fileID: 400106362}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3725,7 +3725,6 @@ RectTransform:
   m_Children:
   - {fileID: 8153877}
   - {fileID: 1994929342}
-  - {fileID: 1278224791}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4817,6 +4816,7 @@ RectTransform:
   - {fileID: 2132753864}
   - {fileID: 2058992437}
   - {fileID: 93477108}
+  - {fileID: 1278224791}
   - {fileID: 854243582}
   - {fileID: 195339013}
   - {fileID: 1650699834}
@@ -11587,7 +11587,7 @@ RectTransform:
   - {fileID: 998799828}
   - {fileID: 1840813774}
   m_Father: {fileID: 400106362}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -17371,17 +17371,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278224790}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9987516, y: 0.9987516, z: 0.9987516}
   m_Children:
   - {fileID: 1457980922}
-  m_Father: {fileID: 262435405}
-  m_RootOrder: 2
+  m_Father: {fileID: 400106362}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 45.333}
+  m_AnchoredPosition: {x: 192, y: -24.581}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278224792
@@ -17396,7 +17396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af9f12fb352d5445b634a51c59ea34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bill: {fileID: 400106358}
+  bill: {fileID: 998799827}
 --- !u!114 &1278224793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17441,13 +17441,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 9af9f12fb352d5445b634a51c59ea34f, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1278224792}
+        m_TargetAssemblyTypeName: billing, Assembly-CSharp
+        m_MethodName: bills
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -20751,7 +20751,7 @@ RectTransform:
   - {fileID: 233389229}
   - {fileID: 1938312225}
   m_Father: {fileID: 400106362}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
