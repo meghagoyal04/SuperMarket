@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Supermarket.unity
+    guid: 155e5ef7bda086c4d966102f60fd6b64
+  - enabled: 1
+    path: Assets/Scenes/CashCounter.unity
+    guid: 0162fa585dbcefc45b0d849cd27136df
   m_configObjects: {}

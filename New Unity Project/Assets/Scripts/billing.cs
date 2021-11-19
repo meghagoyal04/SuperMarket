@@ -12,12 +12,38 @@ public class billing : MonoBehaviour
     public GameObject bill;
     private int quant;
     private int price;
+
+    private GameObject[] slots;
+
+    public List<Text> amounts = new List<Text>();
+    public List<Text> names = new List<Text>();
     private string name= "";
     private int calciumtotal= 0;
+    private int carbtotal = 0;
+    private int caltotal = 0;
+    private int protientotal = 0;
+    private int vitaminAtotal = 0;
+    private int vitaminCtotal = 0;
+    private int irontotal = 0;
+    private List<int> totals = new List<int>();
+    private int CostperItem=0;
     private int totalCost=0;
     private Text item_cost;
+    Dictionary<string, double> dictNew = new Dictionary<string, double>()
+    {
+      {"calcium",0.7},
+      {"protien",50.0},
+      {"iron", 0.018},
+      {"carbohydrates",275},
+      {"vitamin_c", 0.07 },
+      {"vitamin_a", 0.9 },
+      {"calories", 2300 }
+    };
+
     //public List<Item> items = new List<Item>();
     private List<Item>items = new List<Item>();
+
+    public GameObject panel;
     
     /*void Start()
     {
@@ -32,15 +58,47 @@ public class billing : MonoBehaviour
     }
     public void bills()
     {
-        items = bill.GetComponent<Items_List>().items;
+        items = Items_List.instance.items;
+        slots = Items_List.instance.slots;
 
-         for (int i = 0; i < items.Count; i++)
+        int money;
+
+         for (int i = 0; i < slots.Length; i++)
          {
-            string name = items[i].itemName;
-            quant = items[i].quant;
-            price = items[i].itemPrice;
-            calciumtotal += items[i].calcium * quant;
-            totalCost += quant * price;
+            string name = slots[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text;
+            int quan;
+            quan = Int32.Parse(slots[i].transform.GetChild(0).GetComponent<Text>().text);
+            
+
+            if (quan > 0)
+            {
+                price = items[i].itemPrice;
+                calciumtotal += items[i].calcium * quan;
+                caltotal += items[i].calories * quan;
+                protientotal += items[i].protien * quan;
+                vitaminAtotal += items[i].vitamin_a * quan;
+                vitaminCtotal += items[i].vitamin_c * quan;
+                irontotal += items[i].iron * quan;
+
+                CostperItem = quan * price;
+
+                totalCost += CostperItem;
+                
+                amounts[i].enabled = true;
+                amounts[i].text = items[i].itemName;
+                names[i].enabled = true;
+                names[i].text =" : Rs." +  CostperItem.ToString();
+                
+                totals.Add(CostperItem);
+
+                if (calciumtotal >= dictNew["calcium"] && carbtotal >= dictNew["carbohydrates"] &&
+                    protientotal >= dictNew["protien"] && caltotal >= dictNew["calories"] &&
+                    irontotal >= dictNew["iron"] && vitaminAtotal >= dictNew["vitamin_a"] &&
+                    vitaminCtotal >= dictNew["vitamin_c"])
+                {   
+
+                }
+            }
             //Debug.Log(name);
             //Debug.Log(quant);
 

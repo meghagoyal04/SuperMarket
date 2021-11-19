@@ -76,6 +76,32 @@ public class MakeButton : MonoBehaviour
                 panel.SetActive(false);
             }
         }
+
+        if (obj1.name.Equals("carrot"))
+        {
+            if (panel != null)
+            {
+                panel.SetActive(true);
+            }
+
+            else
+            {
+                panel.SetActive(false);
+            }
+        }
+
+        /* if (obj1.name.Equals("cashout"))
+         {
+             if (panel != null)
+             {
+                 panel.SetActive(true);
+             }
+
+             else
+             {
+                 panel.SetActive(false);
+             }
+         }*/
     }
 
 }
